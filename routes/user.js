@@ -24,8 +24,7 @@ router.get('/info', function(req, res, next) {
       info: user
     })
   }).catch(e=>{
-    console.log(e)
-    res.send('error')
+    res.json({error:JSON.stringify(e)})
   })
 });
 
