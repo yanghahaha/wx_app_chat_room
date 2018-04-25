@@ -9,7 +9,7 @@ console.log(`is primary endpoint: ${isPrimary || false}`)
 const apps = [
     {
         name: 'wechat_room_web_service',
-        script: 'NODE_ENV=prod ./bin/www',
+        script: './bin/www',
         instances: process.argv[5] ? 1 : MAX_INS,
         exec_mode: 'cluster',
         out_file: './log/pm2/out.log',
