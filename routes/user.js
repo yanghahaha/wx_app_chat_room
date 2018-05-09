@@ -3,6 +3,7 @@ const co = require('co')
 const axios = require("axios")
 const config = require('../config')
 const User = require('../model/User')
+// const Buffer = require('buffer')
 
 var router = express.Router();
 
@@ -12,9 +13,10 @@ router.get('/info', function(req, res, next) {
     return res.json({code: 0, message: 'need param: oid'})
   }
   co(function*(){
-    let user = yield User.findOne({where:{open_id:oid}})
+    const open_key = Buffer.from(oid,'utf8').toString("base64");
+    let user = yield User.findOne({where:{open_id:open_key}})
     if(!user){
-      [user, msg] = yield createNewUser(oid)
+      [user, msg] = yield createNewUser(open_key)
       if(!user) {
         return res.json({code: 0, message: msg})
       }
@@ -24,7 +26,7 @@ router.get('/info', function(req, res, next) {
       info: user
     })
   }).catch(e=>{
-    res.json({error:JSON.stringify(e)})
+    res.send(e.toString())
   })
 });
 
