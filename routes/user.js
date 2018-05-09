@@ -3,7 +3,6 @@ const co = require('co')
 const axios = require("axios")
 const config = require('../config')
 const User = require('../model/User')
-// const Buffer = require('buffer')
 
 var router = express.Router();
 
