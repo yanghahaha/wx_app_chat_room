@@ -1,9 +1,9 @@
 module.exports = {
     MYSQL_CONFIG: {
-        HOST: 'localhost',
-        NAME: 'wx_chat_room',
-        USER: 'yangwu',
-        PWD: 'dsf651gdfvsad12344',
+        HOST: '',
+        NAME: '',
+        USER: '',
+        PWD: '',
     },
-    LIVE_API_HOST: 'http://liveapi.ejudata.com'
+    LIVE_API_HOST: 'http://..com'
 }
